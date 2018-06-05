@@ -1,0 +1,30 @@
+{
+  "name": "pieceup.js",
+  "version": "0.0.1",
+  "description": "A small helper library for a asset pipeline flow and static site generation.",
+  "main": "pieceup.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alleras/pieceup.js.git"
+  },
+  "author": "Agustin Lleras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alleras/pieceup.js/issues"
+  },
+  "homepage": "https://github.com/alleras/pieceup.js#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
+  }
+}

@@ -10,7 +10,18 @@ npm install pieceup-js
 
 Pieceup implements a scheme comprised of two structures: ```sourceObject```, an object that contains the source code, data and other relevant information,  and ```sourceTree```, an array that contains all the ```sourceObjects``` pertinent to a process.
 
-A **Source Tree** can be created using ```createSourceTree()```, which will read the contents of a folder and generate the array. Alternatively, a single file (which would result in a **Source Object**) can be read by using ```setFileSourceObj()```.
+### Source Tree
+
+A Source Tree can be created using ```createSourceTree()```, which will read the contents of a folder and generate the array. 
+
+### Source Object
+Alternatively, a single file (which would result in a Source Object) can be read by using ```setFileSourceObj()```.
+
+### Pipeline
+
+To actually process and do modifications on the source, a pipeline can be created using ```setPipeline()```. This provides a way of applying several functions, one after another, to each object in a Source Tree.
+
+The argument for the first function will be the Source Object, and the returning value of each function will be the argument for the next. (More on this on the documentation)
 
 ## Example
 
@@ -33,9 +44,10 @@ const blogEntryPipeline = pieceup.setPipeline(
   nestInLayout)
 
 // Execute the pipeline on the tree and store the result
+// Note that the argument provided is a Source Tree, but the setPipeline() function will iterate over it and call the composition of functions using each Source Object as the argument.
 var renderedBlog = blogEntryPipeline(entriesSource)
 
-// Write to a file. The supplied function will tell the filename to use
+// Write to a file. The supplied function will provide the filename to use
 pieceup.toFile(renderedBlog, function (obj) {
     return obj.name + '.html'
 })

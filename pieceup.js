@@ -130,7 +130,7 @@ var SiteGenerator = (function () {
    *
    * @returns {object} An object containing the structured data of the file.
    */
-  const setFileSourceObj = function (filePath, data, parsingFunctions) {
+  const setFileSourceObj = function (filePath, data = null, parsingFunctions = null) {
     const source = fs.readFileSync(filePath, 'utf-8')
     let sourceObject = {source: source}
 
@@ -143,7 +143,7 @@ var SiteGenerator = (function () {
     let properties = parsingFunctions === false ? null : parseFileProperties(filePath, parsingFunctions)
 
     // Let's check what to put in the object
-    if (data) sourceObject.data = data
+    if (_isObject(data)) sourceObject.data = data
     if (_isObject(properties)) sourceObject = _merge(sourceObject, properties)
 
     return sourceObject

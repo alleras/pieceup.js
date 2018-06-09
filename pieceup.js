@@ -175,6 +175,7 @@ var SiteGenerator = (function () {
     const {
       data = null,
       parsingFunctions = null,
+      patternArray = ['!/**/*.js', '/**/*.*'],
       matchingFunction = matchPatterns(patternArray) // Default matching function
     } = options
 

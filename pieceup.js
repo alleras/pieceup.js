@@ -198,9 +198,9 @@ var pieceup = (function () {
 
     return function (fileList) {
       return patternArray.reduce((listArray, pattern) => {
-        return listArray.filter((path) => {
+        return listArray.filter((filePath) => {
           // Minimatch won't do anything with paths starting with a dot, so we remove them.
-          const target = path.startsWith('.') ? path.slice(1) : path
+          const target = filePath.startsWith('.') ? filePath.slice(1) : filePath
           return minimatch(target, pattern)
         })
       }, fileList)

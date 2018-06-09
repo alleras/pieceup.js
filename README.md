@@ -56,4 +56,4 @@ pieceup.toFile(renderedBlog, function (obj) {
 
 ## Documentation
 
-Documentation for this project can be found [here](https://github.com/alleras/pieceup.js/blob/master/test/test.js)
+Documentation for this project can be found [here](https://github.com/alleras/pieceup.js/blob/master/docs/INDEX.md)

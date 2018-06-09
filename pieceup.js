@@ -66,7 +66,7 @@ var Helpers = (function () {
   }
 })()
 
-var SiteGenerator = (function () {
+var pieceup = (function () {
   /**
    * Sets object data.
    *
@@ -239,4 +239,4 @@ var SiteGenerator = (function () {
   }
 })()
 
-module.exports = SiteGenerator
+module.exports = pieceup

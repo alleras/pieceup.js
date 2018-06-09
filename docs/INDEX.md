@@ -1,5 +1,15 @@
 # Pieceup.js Documentation
 
+Content table:
+
+* [Source Object](#source-object) - The actual **stuff** we're handling.
+* [Source Tree](#source-tree) - Just an array, man.
+* [Pipeline](https://github.com/alleras/pieceup.js/blob/master/docs/how-to-use-pattern-array.md) - Complicated, except it's not.
+
+Also see:
+
+* [How to use the patternArray?](#link)
+
 Pieceup is a small library designed for Node, with functional programming in mind, that aids in the process of setting up a static site generator. In a more specific sense, it provides a structure and a guideline for modifying source code in a procedural manner. (Since that's what static site generators mostly do anyways)
 
 The library focuses on the three most importants steps in an asset flow:

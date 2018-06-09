@@ -72,6 +72,8 @@ Creates a ``Source Tree``, which is an array of Source Objects parting from the 
 | patternArray | **_``(array)``_** | **(Default: ``['!/**/*.js', '/**/*.*']``)** An array of glob matching patterns, to be applied in order. |
 | matchingFunction | **_``(function)``_** | **(Default: ``matchPatterns(patternArray)``)** A function used to select which files will be included (or excluded). Should return an array of paths. |
 
+For more information on how to use ``patternArray`` refer to https://github.com/alleras/pieceup.js/blob/master/docs/how-to-use-pattern-array.md
+
 #### Returns
 
 * **_``(array)``_**: An array containing ``Source Objects``.

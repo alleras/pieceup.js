@@ -67,37 +67,17 @@ var Helpers = (function () {
 })()
 
 var pieceup = (function () {
-  /**
-   * Sets object data.
-   *
-   * @param {*} sourceObj The Source Object to which the data will be set.
-   * @param {*} data An object containing the properties to change or add.
-   *
-   * @returns {object} sourceObj
-   */
   const setSourceData = function (sourceObj, data) {
     return _merge(sourceObj, {data: data})
   }
 
-  /**
-   * Sets a chain of processing functions, that will be applied to each Source Object in the Source Tree. In the execution of each function, the ouput of the previous is the input of the next.
-   *
-   * FIXME: URGENT Accept async functions
-   * @param {array} fn Functions that will process the Source Object. Each should return a Source Object.
-   * @returns {function} Partially applied function that will take the SourceTree and a callback (optional) as arguments.
-   */
+  // FIXME: URGENT Accept async functions
   const setPipeline = function (...fn) {
     return function (sourceTree, callback) {
       return sourceTree.map((obj) => _pipeline(...fn)(obj, callback))
     }
   }
 
-  /**
-   * Writes the "source" property of each sourceObject in a Tree to a file.
-   *
-   * @param {array} sourceTree The Source Tree containing all the Source Objects.
-   * @param {function=} getOuputPath A function that takes the Source Object as input and returns an output path.
-   */
   const toFile = function (sourceTree, getOuputPath) {
     // Set a fallback function to get the output path
     if (typeof getOuputPath !== 'function') {
@@ -119,17 +99,9 @@ var pieceup = (function () {
           `Object that caused the error:\n`, obj)
       }
     })
+    return true
   }
 
-  /**
-   * Creates a new Source Object using the content read from a file.
-   *
-   * @param {string} filePath The path of the file to be read.
-   * @param {object} data An object containing variables. It will be inserted in the "data" property of the Source Object.
-   * @param {array} parsingFunctions Array of functions, or a function, that will return an object with the properties of the file.
-   *
-   * @returns {object} An object containing the structured data of the file.
-   */
   const setFileSourceObj = function (filePath, data = null, parsingFunctions = null) {
     const source = fs.readFileSync(filePath, 'utf-8')
     let sourceObject = {source: source}
@@ -149,26 +121,8 @@ var pieceup = (function () {
     return sourceObject
   }
 
-  /**
-  * @typedef {Object} SourceTreeOptions
-  * @property {object=} data Will be inserted in the "data" property of the Source Object.
-  * @property {array=} parsingFunctions Array of functions, or a function, that will return an object with the properties of the file. Pass false to not get the file properties.
-  * @property {function=} matchingFunction A function used to select which files will be included (or excluded). Should return an array of paths.
-  */
-
-  /**
-  * Creates an array of Source Objects parting from the files obtained after reading the specified folder and filtering through the glob patterns.
-  *
-  *
-  * @param {string} folderPath The path to the folder where the files to be read are.
-  * @param {array=} patternArray An array of glob matching patterns, to be applied in order.
-  * @param {SourceTreeOptions=} options
-  *
-  * @returns {array} An array containing Source Objects.
-  */
   const createSourceTree = function (
     folderPath,
-    patternArray = ['!/**/*.js', '/**/*.*'], // FIXME: Make part of options object
     options = {}
   ) {
     var fileList = glob.sync(`${folderPath}/**/*`)
@@ -186,13 +140,7 @@ var pieceup = (function () {
       return setFileSourceObj(filePath, data, parsingFunctions)
     })
   }
-  /**
-   * Executes multiple minimatch patterns.
-   *
-   * @param {array} patternArray Array containing the patterns to use. Function executes them in order to get a fileList. If patternArray is null or undefined, the returned fileList will be empty.
-   *
-   * @returns {array} A list of paths.
-   */
+
   const matchPatterns = function (patternArray) {
     patternArray = _toArray(patternArray)
 
@@ -206,14 +154,7 @@ var pieceup = (function () {
       }, fileList)
     }
   }
-  /**
-   * Execute a function or array of functions to get a file's properties.
-   *
-   * @param {*} filePath The path to the file.
-   * @param {*} parseArray Array of functions to use. Each function should use the path of the file as a parameter.
-   *
-   * @returns {object} An object with the parsed properties.
-   */
+
   const parseFileProperties = function (filePath, parsingFunctions = []) {
     parsingFunctions = _toArray(parsingFunctions)
 

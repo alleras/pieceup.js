@@ -1,5 +1,6 @@
 # Pieceup.js
-Pieceup is a small library designed for Node.js that aids in the process of setting up a static site generator. In a more specific sense, it provides a structure and a guideline for modifying source code in a procedural manner.
+
+Pieceup is a small library designed for Node, with functional programming in mind, that aids in the process of setting up a static site generator. In a more specific sense, it provides a structure and a guideline for modifying source code in a procedural manner. (Since that's what static site generators mostly do anyways)
 
 ## Installation
 
@@ -8,20 +9,19 @@ npm install pieceup-js
 ```
 ## Usage
 
-Pieceup implements a scheme comprised of two structures: ```sourceObject```, an object that contains the source code, data and other relevant information,  and ```sourceTree```, an array that contains all the ```sourceObjects``` pertinent to a process.
+Pieceup implements a scheme comprised of two structures: ```sourceObject```, an object that contains the source code, data and other relevant information,  and a ```sourceTree```, an array that contains all the ```sourceObjects``` pertinent to a process. Then, these objects are modified using a "pipeline", an adaptation of a [pipe function](https://medium.com/@venomnert/pipe-function-in-javascript-8a22097a538e) tailored for this particular use.
 
 ### Source Tree
 
 A Source Tree can be created using ```createSourceTree()```, which will read the contents of a folder and generate the array. 
 
 ### Source Object
+
 Alternatively, a single file (which would result in a Source Object) can be read by using ```setFileSourceObj()```.
 
 ### Pipeline
 
-To actually process and do modifications on the source, a pipeline can be created using ```setPipeline()```. This provides a way of applying several functions, one after another, to each object in a Source Tree.
-
-The argument for the first function will be the Source Object, and the returning value of each function will be the argument for the next. (More on this on the documentation)
+Pipelines can be created by using ```setPipeline()```. This provides a way of applying several functions, one after another, to each object in a Source Tree. A more detailed explanation is provided in the [documentation](https://github.com/alleras/pieceup.js#documentation).
 
 ## Example
 
@@ -53,9 +53,7 @@ pieceup.toFile(renderedBlog, function (obj) {
 })
 
 ```
-Refer to __linkplaceholder__ for a functioning example.
 
 ## Documentation
 
-TODO
-
+Documentation for this project can be found [here](https://github.com/alleras/pieceup.js/blob/master/test/test.js)

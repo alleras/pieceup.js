@@ -1,6 +1,6 @@
 {
   "name": "pieceup-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A small helper library for a source code reading, assembly, modification and writing.",
   "main": "pieceup.js",
   "directories": {

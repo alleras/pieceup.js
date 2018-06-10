@@ -1,10 +1,20 @@
 {
-  "name": "pieceup.js",
-  "version": "0.0.1",
-  "description": "A small helper library for a asset pipeline flow and static site generation.",
+  "name": "pieceup-js",
+  "version": "0.1.0",
+  "description": "A small helper library for a source code reading, assembly, modification and writing.",
   "main": "pieceup.js",
   "directories": {
+    "doc": "docs",
     "test": "test"
+  },
+  "dependencies": {
+    "fs-extra": "^6.0.1",
+    "glob": "^7.1.2",
+    "minimatch": "^3.0.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,18 +23,21 @@
     "type": "git",
     "url": "git+https://github.com/alleras/pieceup.js.git"
   },
+  "keywords": [
+    "pieceup",
+    "javascript",
+    "static",
+    "site",
+    "generator",
+    "node",
+    "source",
+    "library",
+    "helper"
+  ],
   "author": "Agustin Lleras",
-  "license": "ISC",
+  "license": "SEE LICENSE IN \"LICENSE\" FILE",
   "bugs": {
     "url": "https://github.com/alleras/pieceup.js/issues"
   },
-  "homepage": "https://github.com/alleras/pieceup.js#readme",
-  "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0"
-  }
+  "homepage": "https://github.com/alleras/pieceup.js#readme"
 }

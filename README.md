@@ -30,12 +30,13 @@ Pipelines can be created by using ```setPipeline()```. This provides a way of ap
 const pieceup = require('pieceup-js')
 
 // Store the source tree in a variable
-const blogSourceTree = pieceup.createSourceTree(blogPath, [
-  // Glob patterns used for selecting files
-
-  '/**/*.md', // Select all .md files
-  '!/**/_*' // Exclude files starting with '_'
-])
+// Read and get the source tree for those blog entries
+const entriesSource = pieceup.createSourceTree(blogPath, {
+  patternArray: [
+    '/**/*.md', // Select all .md files,
+    '!/**/_*' // Exclude files starting with '_'
+  ]
+})
 
 // Set up a pipeline to do modifications to the tree
 const blogEntryPipeline = pieceup.setPipeline(

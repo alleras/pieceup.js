@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>
+        Agustin Lleras' Personal Site
+    </title>
+    <meta name="description" content="">
+    <meta name="author" content="Agustin Lleras">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="text/javascript" src="assets/js/main.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container header">
+            <a href="#" class="logo">
+                <img src="assets/logo.png" />
+            </a>
+            <ul class="navbar-links">
+                <li class='navbar-item'>
+                    <a href='#'>Home</a>
+                </li>
+                <li class='navbar-item'>
+                    <a href='#projects'>Projects</a>
+                </li>
+                <li class='navbar-item'>
+                    <a href='#about'>About</a>
+                </li>
+                <div class='clearfix'></div>
+            </ul>
+        </div>
+    </nav>
+    <div class="container greeter">
+        <h1 class="greeter-header">Hey! Agustin here.</h1>
+        <span class="greeter-subtext">
+            {MD}
+            My full name? **Agustin Lleras**; and yes, you can pronounce it like Augustine.
+
+            I am a super great person with interests in **Node.js** and **front-end** web development.
+            {/MD}
+        </span>
+        <hr>
+    </div>
+    <div class="container main">
+        <section id="about">
+            <h5 class="section-header">
+                <span class="section-header-text">About me</span>
+            </h5>
+            <div class="section-content">
+                {MD}This is a paragraph containing **my own information** in short sentences. I am 21 and this is my first attempt at a portfolio website. Many remakes will come, probably, as I'm always hungry for perfection.
+
+                I was born in Venezuela and studied Telecommunications Engineering up until the point I had to leave my country. Pretty cool huh?{/MD}
+            </div>
+        </section>
+        <section id="projects">
+            <h5 class="section-header">
+                <span class="section-header-text">Projects</span>
+            </h5>
+
+            <div class="projectFlexbox half-wider">
+                <% for(var i=0; i< projects.length; i++) {%>
+                    <div class="projectCard">
+                        <div class="projectCard__image">
+                            <img src="<%= projects[i].imgPath %>" />
+                        </div>
+                        <div class="projectCard__content">
+                            <span class="projectCard__title">
+                                <%= projects[i].title %>
+                            </span>
+                            <span class="projectCard__description">
+                                    <%= projects[i].description %>
+                            </span>
+                            <hr class="projectCard__innerSeparator" />
+                            <h2 class="projectCard__tagsTitle">Tags</h2>
+                            <ul class="tagList">
+                                <% for(var j=0; j< projects[i].tags.length; j++) {%>
+                                    <li class="tagList__tag"><%= projects[i].tags[j] %></li>
+                                <% } %>
+                            </ul>
+                            <a href="<%= projects[i].link %>" class="projectCard__button button button-primary">View</a>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+    </div>
+    <a href="#" id="goUpButton">
+        <i class="goUpButton__arrow fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</body>
+</html>

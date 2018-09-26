@@ -21,11 +21,19 @@ const _compose = function (f1, f2) { // FIXME: Analyze for a better implementati
 }
 const _pipeline = (...fn) => fn.reduce(_compose)
 
-const _isObject = (...objArr) => objArr.every((obj) => (obj && typeof obj === 'object'))
+const _isObject = (...objArr) => objArr.every(
+  (obj) => (obj && typeof obj === 'object') && !Array.isArray(obj)
+)
 
 const _clone = (obj) => {
   return Object.keys(obj).reduce((p, c) => {
-    return _isObject(obj[c]) ? {...p, [c]: _clone(obj[c])} : {...p, [c]: obj[c]}
+    if (_isObject(obj[c])) {
+      return {...p, [c]: _clone(obj[c])}
+    } else if (Array.isArray(obj[c])) {
+      return {...p, [c]: obj[c].concat()}
+    } else {
+      return {...p, [c]: obj[c]}
+    }
   }, {})
 }
 

@@ -1,7 +1,0 @@
-{
-    "title": "Pieceup.js",
-    "description": "A small Node library that aids in the generation of static sites.",
-    "tags": ["Node", "Javascript", "ES6"],
-    "imgPath": "assets/pic.jpg",
-    "link": "https://github.com/alleras/pieceup.js"
-}

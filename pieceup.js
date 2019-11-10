@@ -12,6 +12,7 @@ const path = require('path')
  */
 
 // TODO: Async
+// FIXME: Use lodash for _functions
 const _compose = function (f1, f2) { // FIXME: Analyze for a better implementation
   return function (arg, callback) { // FIXME: Callback error management
     const result = f2(f1(arg))
